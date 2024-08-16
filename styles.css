@@ -1,0 +1,333 @@
+:root {
+    --neon-color: #9b59b6; /* Neon Purple */
+    --bg-color: #000;
+    --text-color: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+header.scrolled {
+    background-color: rgba(0, 0, 0, 0.95);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--neon-color);
+    text-shadow: 0 0 10px var(--neon-color);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.nav-links a:hover {
+    color: var(--neon-color);
+    text-shadow: 0 0 10px var(--neon-color);
+}
+
+main {
+    margin-top: 80px;
+    min-height: calc(100vh - 160px);
+}
+
+section {
+    padding: 80px 0;
+    margin-bottom: 40px;
+}
+
+/* Define keyframes for animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Apply animations */
+.fade-in {
+    animation: fadeIn 1.5s ease-out;
+}
+
+.slide-in-left {
+    animation: slideInLeft 1s ease-out;
+}
+
+.slide-in-right {
+    animation: slideInRight 1s ease-out;
+}
+
+.slide-in-up {
+    animation: slideInUp 1s ease-out;
+}
+
+/* Ensure the elements are hidden initially */
+.hidden {
+    opacity: 0;
+}
+
+h1, h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: var(--neon-color);
+    text-shadow: 0 0 10px var(--neon-color);
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+p {
+    margin-bottom: 20px;
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--neon-color);
+    color: var(--bg-color);
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px var(--neon-color);
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.btn:hover {
+    background-color: var(--bg-color);
+    color: var(--neon-color);
+    box-shadow: 0 0 20px var(--neon-color);
+    transform: translateY(-2px);
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.game-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(155, 89, 182, 0.2); /* Neon Purple */
+}
+
+.game-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.game-card-content {
+    padding: 20px;
+}
+
+.game-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: var(--neon-color);
+    text-shadow: 0 0 10px var(--neon-color);
+    font-weight: 300;
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: var(--text-color);
+    text-align: center;
+    padding: 20px 0;
+    font-weight: 300;
+}
+
+.game-showcase {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.game-showcase img {
+    max-width: 50%;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(155, 89, 182, 0.2); /* Neon Purple */
+}
+
+.game-info {
+    flex: 1;
+}
+
+/* About page styles */
+.about-content {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.team-image {
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(155, 89, 182, 0.2); /* Neon Purple */
+}
+
+.about-text ul {
+    list-style-type: none;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.about-text ul li {
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.about-text ul li:before {
+    content: "•";
+    color: var(--neon-color);
+    position: absolute;
+    left: -20px;
+}
+
+/* Contact page styles */
+.contact-content {
+    display: flex;
+    gap: 40px;
+}
+
+.contact-info, .contact-form {
+    flex: 1;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 300;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--neon-color);
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-color);
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.contact-form textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+@media (max-width: 768px) {
+    .about-content,
+    .contact-content,
+    .game-showcase {
+        flex-direction: column;
+    }
+    
+    .team-image,
+    .game-showcase img {
+        max-width: 100%;
+    }
+}

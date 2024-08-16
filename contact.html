@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Interactive LLC</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Animation for fading in the contact section */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Animation for sliding in from the left */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Animation for sliding in from the right */
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Apply animations */
+        #contact {
+            animation: fadeIn 1s ease-out;
+        }
+
+        .contact-info {
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .contact-form {
+            animation: slideInRight 1s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Nexus Interactive LLC</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="games.html">Games</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="contact" class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Get in Touch</h2>
+                    <p>We'd love to hear from you! Whether you have questions about our games, want to report an issue, or are interested in collaborating, feel free to reach out.</p>
+                    <ul>
+                        <li>Email: dawid.nexusinteractive@gmail.com</li>
+                        <li>Phone: 0752-151-4498</li>
+                        <li>Address: None</li>
+                    </ul>
+                    <h2>Follow Us</h2>
+                    <div class="social-links">
+                        <a href="#" class="btn">Twitter</a>
+                        <a href="https://discord.gg/da28cHvj4f" class="btn">Discord</a>
+                        <a href="#" class="btn">Instagram</a>
+                    </div>
+                </div>
+                <form id="contactForm" class="contact-form">
+                    <h2>Send Us a Message</h2>
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject:</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Nexus Interactive LLC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Include EmailJS script -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
