@@ -1,5 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('header');
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.nav-links');
 
     // Header background change on scroll
     window.addEventListener('scroll', () => {
@@ -11,48 +15,131 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    navLinks.forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            targetSection.scrollIntoView({
                 behavior: 'smooth'
             });
         });
     });
 
-    // Initialize EmailJS
-    emailjs.init("YTSCRTO7mOVSLhVXb9"); // Replace with your EmailJS user ID
-
-    // Form submission handler
-    document.getElementById('contactForm').addEventListener('submit', function (event) {
-        event.preventDefault();
-
-        const form = event.target;
-        const formData = new FormData(form);
-        const data = {};
-        formData.forEach((value, key) => {
-            data[key] = value;
-        });
-
-        emailjs.send("service_gr76gij", "template_82s7ool", data)
-            .then(response => {
-                alert('Email sent successfully!');
-                form.reset(); // Clear the form
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Error sending email.');
-            });
+    // Mobile menu toggle
+    burger.addEventListener('click', () => {
+        nav.classList.toggle('nav-active');
+        burger.classList.toggle('toggle');
     });
 
-    // Add animation classes to elements
-    const fadeElements = document.querySelectorAll('.fade-in');
-    const slideLeftElements = document.querySelectorAll('.slide-in-left');
-    const slideRightElements = document.querySelectorAll('.slide-in-right');
-    const slideUpElements = document.querySelectorAll('.slide-in-up');
+    // Parallax effect for game image
+    const gameImage = document.querySelector('.parallax-effect');
+    document.addEventListener('mousemove', (e) => {
+        const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+        const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+        gameImage.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+    });
 
-    fadeElements.forEach(el => el.classList.add('fade-in'));
-    slideLeftElements.forEach(el => el.classList.add('slide-in-left'));
-    slideRightElements.forEach(el => el.classList.add('slide-in-right'));
-    slideUpElements.forEach(el => el.classList.add('slide-in-up'));
+    // Reveal animations on scroll
+    function reveal() {
+        sections.forEach((section) => {
+            const sectionTop = section.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            if (sectionTop < windowHeight - 150) {
+                section.classList.add('active');
+            } else {
+                section.classList.remove('active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', reveal);
+    reveal(); // Call once to check initial state
+
+    // GSAP animations
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero section animation
+    gsap.from('.hero-content', {
+        duration: 1,
+        opacity: 0,
+        y: 50,
+        stagger: 0.2,
+        ease: 'power3.out'
+    });
+
+    // Featured game section animation
+    gsap.from('.game-showcase', {
+        scrollTrigger: {
+            trigger: '#featured-game',
+            start: 'top 80%'
+        },
+        duration: 1,
+        opacity: 0,
+        y: 100,
+        stagger: 0.3,
+        ease: 'power3.out'
+    });
+
+    // Text scramble effect for headings
+    class TextScramble {
+        constructor(el) {
+            this.el = el;
+            this.chars = '!<>-_\\/[]{}—=+*^?#________';
+            this.update = this.update.bind(this);
+        }
+        setText(newText) {
+            const oldText = this.el.innerText;
+            const length = Math.max(oldText.length, newText.length);
+            const promise = new Promise((resolve) => this.resolve = resolve);
+            this.queue = [];
+            for (let i = 0; i < length; i++) {
+                const from = oldText[i] || '';
+                const to = newText[i] || '';
+                const start = Math.floor(Math.random() * 40);
+                const end = start + Math.floor(Math.random() * 40);
+                this.queue.push({ from, to, start, end });
+            }
+            cancelAnimationFrame(this.frameRequest);
+            this.frame = 0;
+            this.update();
+            return promise;
+        }
+        update() {
+            let output = '';
+            let complete = 0;
+            for (let i = 0, n = this.queue.length; i < n; i++) {
+                let { from, to, start, end, char } = this.queue[i];
+                if (this.frame >= end) {
+                    complete++;
+                    output += to;
+                } else if (this.frame >= start) {
+                    if (!char || Math.random() < 0.28) {
+                        char = this.randomChar();
+                        this.queue[i].char = char;
+                    }
+                    output += `<span class="dud">${char}</span>`;
+                } else {
+                    output += from;
+                }
+            }
+            this.el.innerHTML = output;
+            if (complete === this.queue.length) {
+                this.resolve();
+            } else {
+                this.frameRequest = requestAnimationFrame(this.update);
+                this.frame++;
+            }
+        }
+        randomChar() {
+            return this.chars[Math.floor(Math.random() * this.chars.length)];
+        }
+    }
+
+    // Apply text scramble effect to headings
+    const headings = document.querySelectorAll('h1, h2, h3');
+    headings.forEach(heading => {
+        const fx = new TextScramble(heading);
+        fx.setText(heading.textContent);
+    });
 });
