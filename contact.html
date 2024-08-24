@@ -3,125 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus Interactive LLC</title>
+    <title>Nexus Interactive LLC - Contact Us</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-    <style>
-        /* Animation for fading in the contact section */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Animation for sliding in from the left */
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        /* Animation for sliding in from the right */
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        /* Apply animations */
-        #contact {
-            animation: fadeIn 1s ease-out;
-        }
-
-        .contact-info {
-            animation: slideInLeft 1s ease-out;
-        }
-
-        .contact-form {
-            animation: slideInRight 1s ease-out;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="container">
             <nav>
-                <div class="logo">Nexus Interactive LLC</div>
+                <div class="logo">Nexus Interactive</div>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="games.html">Games</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
             </nav>
         </div>
     </header>
-
     <main>
         <section id="contact" class="container">
+            <h1 class="section-title glitch" data-text="Contact Us">Contact Us</h1>
             <div class="contact-content">
-                <div class="contact-info">
-                    <h2>Get in Touch</h2>
-                    <p>We'd love to hear from you! Whether you have questions about our games, want to report an issue, or are interested in collaborating, feel free to reach out.</p>
-                    <ul>
-                        <li>Email: dawid.nexusinteractive@gmail.com</li>
-                        <li>Phone: 0752-151-4498</li>
-                        <li>Address: None</li>
+                <div class="contact-info reveal fade-right">
+                    <h2 class="neon-text">Get in Touch</h2>
+                    <p class="shine-text">We'd love to hear from you! Whether you have a question about our games or just want to say hello, feel free to reach out.</p>
+                    <ul class="contact-details">
+                        <li><i class="fas fa-phone neon-text"></i> <span>07521514498</span></li>
+                        <li><i class="fas fa-envelope neon-text"></i> <span>support@nexusinteractiverbx.com</span></li>
                     </ul>
-                    <h2>Follow Us</h2>
                     <div class="social-links">
-                        <a href="#" class="btn">Twitter</a>
-                        <a href="https://discord.gg/da28cHvj4f" class="btn">Discord</a>
-                        <a href="#" class="btn">Instagram</a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
                     </div>
                 </div>
-                <form id="contactForm" class="contact-form">
-                    <h2>Send Us a Message</h2>
-                    <div class="form-group">
-                        <label for="name">Name:</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject:</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message:</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn">Send Message</button>
-                </form>
+                <div class="contact-form reveal fade-left">
+                    <h2 class="neon-text">Send Us a Message</h2>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn neon-btn pulse">Send Message</button>
+                    </form>
+                </div>
             </div>
         </section>
     </main>
-
     <footer>
         <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Nexus Interactive LLC</div>
+                <div class="social-links">
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
             <p>&copy; 2024 Nexus Interactive LLC. All rights reserved.</p>
         </div>
     </footer>
-
-    <!-- Include EmailJS script -->
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
