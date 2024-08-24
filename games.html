@@ -3,63 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus Interactive LLC - Games</title>
+    <title>Nexus Interactive LLC - Innovative Roblox Games</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="container">
             <nav>
-                <div class="logo">Nexus Interactive LLC</div>
+                <div class="logo">Nexus Interactive</div>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="games.html">Games</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
             </nav>
         </div>
     </header>
-
     <main>
-        <section id="games" class="container fade-in">
-            <h1 class="slide-in-up">Our Games</h1>
+        <section id="games" class="container">
+            <h1 class="section-title glitch" data-text="Our Games">Our Games</h1>
             <div class="game-grid">
-                <div class="game-card fade-in-up">
-                    <img src="https://www.dropbox.com/scl/fi/li58fkjhxlwpp24rlwap6/image_2024-08-15_214504384.png?rlkey=vwheml46vnr0aezxa2pf0v9wa&st=aavmtbjr&dl=1" alt="Game 1">
+                <div class="game-card reveal fade-bottom">
+                    <div class="game-image parallax-effect">
+                        <img src="https://www.dropbox.com/scl/fi/li58fkjhxlwpp24rlwap6/image_2024-08-15_214504384.png?rlkey=vwheml46vnr0aezxa2pf0v9wa&st=aavmtbjr&dl=1" alt="Fort Loredo, HM">
+                    </div>
                     <div class="game-card-content">
-                        <h3><b>Fort Loredo, HM</b></h3>
-                        <p>Fort Loredo, HM is a strict roleplay game set in the fictional state of Hermitage, inspired by Florida’s vibrant culture. Immerse yourself in a dynamic world where every choice counts!</p>
-                        <a href="https://www.roblox.com/games/17807882426/Fort-Loredo" class="btn">Play Now</a>
+                        <h3 class="neon-text"><b>Fort Loredo, HM</b></h3>
+                        <p class="shine-text">Fort Loredo, HM is a strict roleplay game set in the fictional state of Hermitage, inspired by Florida's vibrant culture. Immerse yourself in a dynamic world where every choice counts!</p>
+                        <a href="https://www.roblox.com/games/17807882426/Fort-Loredo" class="btn neon-btn pulse">Play Now</a>
                     </div>
                 </div>
-                <div class="game-card fade-in-up">
-                    <img src="https://via.placeholder.com/300x200" alt="Game 2">
+                <div class="game-card reveal fade-bottom">
+                    <div class="game-image parallax-effect">
+                        <img src="https://via.placeholder.com/300x200" alt="Coming Soon">
+                    </div>
                     <div class="game-card-content">
-                        <h3>??</h3>
-                        <p>COMING SOON! (maybe)</p>
-                        <a href="#" class="btn">Play Now</a>
+                        <h3 class="neon-flicker">Coming Soon</h3>
+                        <p class="shine-text">Our next exciting project is in development. Stay tuned for more information!</p>
+                        <a href="#" class="btn neon-btn" disabled>Coming Soon</a>
                     </div>
                 </div>
-                <div class="game-card fade-in-up">
-                    <img src="https://via.placeholder.com/300x200" alt="Game 3">
+                <div class="game-card reveal fade-bottom">
+                    <div class="game-image parallax-effect">
+                        <img src="https://via.placeholder.com/300x200" alt="Future Project">
+                    </div>
                     <div class="game-card-content">
-                        <h3>??</h3>
-                        <p>COMING SOON! (maybe)</p>
-                        <a href="#" class="btn">Play Now</a>
+                        <h3 class="neon-flicker">Future Project</h3>
+                        <p class="shine-text">We're always innovating! Check back later for updates on our upcoming games.</p>
+                        <a href="#" class="btn neon-btn" disabled>Stay Tuned</a>
                     </div>
                 </div>
             </div>
         </section>
     </main>
-
     <footer>
         <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Nexus Interactive LLC</div>
+                <div class="social-links">
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
             <p>&copy; 2024 Nexus Interactive LLC. All rights reserved.</p>
         </div>
     </footer>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
